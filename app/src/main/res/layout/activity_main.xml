@@ -32,7 +32,8 @@
             android:text=""
             android:id="@+id/editAtividade"
             android:gravity="center"
-            android:hint="Digite aqui"/>
+            android:hint="Digite aqui"
+            />
         </LinearLayout>
 
         <LinearLayout

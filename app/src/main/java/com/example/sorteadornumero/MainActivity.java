@@ -2,8 +2,10 @@ package com.example.sorteadornumero;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -36,6 +38,25 @@ int contador;
         CheckBox check1 = (CheckBox) findViewById(R.id.check1);
         CheckBox check2 = (CheckBox) findViewById(R.id.check2);
         CheckBox check3 = (CheckBox) findViewById(R.id.check3);
+
+        check1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard(MainActivity.this);
+            }
+        });
+        check2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard(MainActivity.this);
+            }
+        });
+        check3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard(MainActivity.this);
+            }
+        });
 
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,5 +115,13 @@ int contador;
                 }
             }
         });
+    }
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View view = activity.getCurrentFocus();
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
